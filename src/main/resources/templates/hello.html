@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>hello</title>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+<h3>Hello, <span th:text="${facebookProfile.name}">Some User</span>!</h3>
+
+<h4>Here is your feed:</h4>
+
+<div th:each="post:${feed}">
+    <b th:text="${post.from.name}">from</b> wrote:
+    <p th:text="${post.message}">message text</p>
+    <img th:if="${post.picture}" th:src="${post.picture}"/>
+    <hr/>
+</div>
+
+</body>
+</html>
